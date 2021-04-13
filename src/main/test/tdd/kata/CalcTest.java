@@ -40,15 +40,20 @@ class CalcTest {
     }
     @Test
     void sumOfDigitWithComma() {
-        assertEquals(0,calc.sum("1,"));
+        Integer actual = calc.sum("1,");
+        Integer expected = -1;
+        assertEquals(expected,actual);
     }
     @Test
     void sumOfLiterals() {
-        assertEquals(0,calc.sum("hello,world"));
+        Integer actual = calc.sum("hello,world");
+        Integer expected = -1;
+        assertEquals(expected,actual);
     }
     @Test
     void commaSum() {
-
-        assertEquals(0,calc.sum("1,,2"));
+        Integer actual = calc.sum("1,,2");
+        Integer expected = -1;
+        assertEquals(expected,actual);
     }
 }
