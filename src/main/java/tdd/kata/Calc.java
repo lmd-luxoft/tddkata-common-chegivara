@@ -1,6 +1,6 @@
 package tdd.kata;
 public class Calc {
-    public String sum(){
+    public Integer sum(String s){
         throw new UnsupportedOperationException();
     }
 }
