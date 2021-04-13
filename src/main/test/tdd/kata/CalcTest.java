@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.text.ParseException;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CalcTest {
     Calc calc ;
@@ -26,6 +27,12 @@ class CalcTest {
         assertEquals(expected,actual);
     }
     @Test
+    void sumOfNegative() {
+        Integer actual = calc.sum("-1,-2");
+        Integer expected = -3;
+        assertEquals(expected,actual);
+    }
+    @Test
     void sumOfOne() {
         Integer actual = calc.sum("1");
         Integer expected = 1;
@@ -33,15 +40,15 @@ class CalcTest {
     }
     @Test
     void sumOfDigitWithComma() {
-        assertThrows(ParseException.class,()->calc.sum("1,"));
+        assertEquals(0,calc.sum("1,"));
     }
     @Test
     void sumOfLiterals() {
-        assertThrows(ParseException.class,()->calc.sum("hello,world"));
+        assertEquals(0,calc.sum("hello,world"));
     }
     @Test
     void commaSum() {
 
-        assertThrows(ParseException.class,()->calc.sum("1,,2"));
+        assertEquals(0,calc.sum("1,,2"));
     }
 }
