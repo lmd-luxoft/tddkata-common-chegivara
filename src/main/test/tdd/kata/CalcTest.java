@@ -51,9 +51,45 @@ class CalcTest {
         assertEquals(expected,actual);
     }
     @Test
-    void commaSum() {
+    void DigitCommaCommaDigit() {
         Integer actual = calc.sum("1,,2");
         Integer expected = -1;
+        assertEquals(expected,actual);
+    }
+    @Test
+    void lineBreakComaDigit() {
+        Integer actual = calc.sum("\n,1,2");
+        Integer expected = -1;
+        assertEquals(expected,actual);
+    }
+    @Test
+    void ComaLineBreakDigit() {
+        Integer actual = calc.sum(",\n1");
+        Integer expected = -1;
+        assertEquals(expected,actual);
+    }
+    @Test
+    void ComaLineBreakComa() {
+        Integer actual = calc.sum(",\n,");
+        Integer expected = -1;
+        assertEquals(expected,actual);
+    }
+    @Test
+    void LineBreakLineBreakComaDigit() {
+        Integer actual = calc.sum("\n\n");
+        Integer expected = -1;
+        assertEquals(expected,actual);
+    }
+    @Test
+    void DigitLineBreakDigitLineBreakDigitLineBreakDigitLineBreak() {
+        Integer actual = calc.sum("1\n2\n3\n4");
+        Integer expected = 10;
+        assertEquals(expected,actual);
+    }
+    @Test
+    void DigitComaDigitLineBreakDigitLineBreakDigitLineBreak() {
+        Integer actual = calc.sum("1,2\n3\n4");
+        Integer expected = 10;
         assertEquals(expected,actual);
     }
 }
