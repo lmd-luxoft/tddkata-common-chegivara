@@ -13,7 +13,7 @@ public class Calc {
             if (!validate(s)) return -1;
             while (matcher.find()) {
                 count++;
-                if(count>2)return  -1;
+//                if(count>2)return  -1;
                 Integer sumPart= matcher.group().isEmpty()?0:Integer.valueOf(matcher.group());
 
                 sum=sum+sumPart;
@@ -27,8 +27,9 @@ public class Calc {
     }
 
     private boolean validate (String sd ){
-        Pattern pattern = Pattern.compile("^-?[0-9]\\d*(,-?\\d+)?$|^$");
+        Pattern pattern = Pattern.compile("(^$)|(^-?\\d$)|(^-?\\d[,\n]?-?\\d+)");
         Matcher matcher = pattern.matcher(sd);
-        return  matcher.find();
+        boolean res =matcher.find();
+        return  res;
     }
 }
